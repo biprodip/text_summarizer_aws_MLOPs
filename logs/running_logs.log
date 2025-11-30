@@ -212,3 +212,242 @@ Traceback (most recent call last):
   File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/optim/adam.py", line 181, in _init_group
     state["exp_avg_sq"] = torch.zeros_like(
 torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 16.69 MiB is free. Including non-PyTorch memory, this process has 7.66 GiB memory in use. Of the allocated memory 7.43 GiB is allocated by PyTorch, and 119.08 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[2025-11-30 21:46:45,891: INFO: main:  stage Data Ingestion stage started ......]
+[2025-11-30 21:46:45,893: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 21:46:45,894: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 21:46:45,894: INFO: common: created directory at: artifacts]
+[2025-11-30 21:46:45,894: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-11-30 21:46:45,894: INFO: data_ingestion: File already exists of size: ~ 7718 KB]
+[2025-11-30 21:46:45,991: INFO: main:  stage Data Ingestion stage completed ......
+
+x==========x]
+[2025-11-30 21:46:45,991: INFO: main:  stage Data Validation stage started ......]
+[2025-11-30 21:46:45,992: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 21:46:45,993: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 21:46:45,993: INFO: common: created directory at: artifacts]
+[2025-11-30 21:46:45,993: INFO: common: created directory at: artifacts/data_validation]
+[2025-11-30 21:46:45,993: INFO: main:  stage Data Validation stage completed ......
+
+x==========x]
+[2025-11-30 21:46:45,993: INFO: main:  stage Data Transformation stage started ......]
+[2025-11-30 21:46:45,994: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 21:46:45,995: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 21:46:45,995: INFO: common: created directory at: artifacts]
+[2025-11-30 21:46:45,995: INFO: common: created directory at: artifacts/data_transformation]
+[2025-11-30 21:46:47,647: INFO: main:  stage Data Transformation stage completed ......
+
+x==========x]
+[2025-11-30 21:46:47,648: INFO: main: *******************]
+[2025-11-30 21:46:47,648: INFO: main:  stage Model Trainer stage started ......]
+[2025-11-30 21:46:47,649: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 21:46:47,650: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 21:46:47,650: INFO: common: created directory at: artifacts]
+[2025-11-30 21:46:47,650: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 21:47:13,103: ERROR: main: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 16.69 MiB is free. Including non-PyTorch memory, this process has 7.66 GiB memory in use. Of the allocated memory 7.43 GiB is allocated by PyTorch, and 119.08 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)]
+Traceback (most recent call last):
+  File "/home/pal194/text_summarizer/main.py", line 51, in <module>
+    model_trainer.main()
+  File "/home/pal194/text_summarizer/src/textSummarizer/pipeline/stage_04_model_trainer.py", line 14, in main
+    model_trainer_config.train()
+  File "/home/pal194/text_summarizer/src/textSummarizer/components/model_trainer.py", line 56, in train
+    trainer.train()
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2740, in _inner_training_loop
+    self.optimizer.step()
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/accelerate/optimizer.py", line 179, in step
+    self.optimizer.step(closure)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/optim/lr_scheduler.py", line 133, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/optim/optimizer.py", line 516, in wrapper
+    out = func(*args, **kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/optim/optimizer.py", line 81, in _use_grad
+    ret = func(*args, **kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/optim/adam.py", line 237, in step
+    has_complex = self._init_group(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/optim/adam.py", line 181, in _init_group
+    state["exp_avg_sq"] = torch.zeros_like(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 16.69 MiB is free. Including non-PyTorch memory, this process has 7.66 GiB memory in use. Of the allocated memory 7.43 GiB is allocated by PyTorch, and 119.08 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[2025-11-30 21:51:57,688: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 21:51:57,690: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 21:51:57,691: INFO: common: created directory at: artifacts]
+[2025-11-30 21:51:57,692: INFO: common: created directory at: artifacts/data_validation]
+[2025-11-30 21:52:49,927: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 21:52:49,929: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 21:52:49,930: INFO: common: created directory at: artifacts]
+[2025-11-30 21:52:49,930: INFO: common: created directory at: artifacts/data_transformation]
+[2025-11-30 21:53:32,990: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 21:53:32,992: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 21:53:32,992: INFO: common: created directory at: artifacts]
+[2025-11-30 21:53:32,993: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 22:02:48,661: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 22:02:48,663: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 22:02:48,664: INFO: common: created directory at: artifacts]
+[2025-11-30 22:02:48,664: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:11:30,998: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:11:31,000: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:11:31,001: INFO: common: created directory at: artifacts]
+[2025-11-30 23:11:31,002: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:12:35,715: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:12:35,716: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:12:35,717: INFO: common: created directory at: artifacts]
+[2025-11-30 23:12:35,718: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:13:49,543: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:13:49,545: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:13:49,546: INFO: common: created directory at: artifacts]
+[2025-11-30 23:13:49,547: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:25:03,908: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:25:03,911: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:25:03,912: INFO: common: created directory at: artifacts]
+[2025-11-30 23:25:03,912: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:28:27,370: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:28:27,373: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:28:27,373: INFO: common: created directory at: artifacts]
+[2025-11-30 23:28:27,374: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:29:29,456: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:29:29,457: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:29:29,457: INFO: common: created directory at: artifacts]
+[2025-11-30 23:29:29,458: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:32:55,460: INFO: main:  stage Data Ingestion stage started ......]
+[2025-11-30 23:32:55,461: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:32:55,462: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:32:55,462: INFO: common: created directory at: artifacts]
+[2025-11-30 23:32:55,462: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-11-30 23:32:55,462: INFO: data_ingestion: File already exists of size: ~ 7718 KB]
+[2025-11-30 23:32:55,557: INFO: main:  stage Data Ingestion stage completed ......
+
+x==========x]
+[2025-11-30 23:32:55,557: INFO: main:  stage Data Validation stage started ......]
+[2025-11-30 23:32:55,558: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:32:55,559: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:32:55,559: INFO: common: created directory at: artifacts]
+[2025-11-30 23:32:55,559: INFO: common: created directory at: artifacts/data_validation]
+[2025-11-30 23:32:55,559: INFO: main:  stage Data Validation stage completed ......
+
+x==========x]
+[2025-11-30 23:32:55,559: INFO: main:  stage Data Transformation stage started ......]
+[2025-11-30 23:32:55,560: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:32:55,561: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:32:55,561: INFO: common: created directory at: artifacts]
+[2025-11-30 23:32:55,561: INFO: common: created directory at: artifacts/data_transformation]
+[2025-11-30 23:32:57,071: INFO: main:  stage Data Transformation stage completed ......
+
+x==========x]
+[2025-11-30 23:32:57,071: INFO: main: *******************]
+[2025-11-30 23:32:57,071: INFO: main:  stage Model Trainer stage started ......]
+[2025-11-30 23:32:57,072: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:32:57,073: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:32:57,073: INFO: common: created directory at: artifacts]
+[2025-11-30 23:32:57,073: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:33:05,745: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:33:05,747: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:33:05,748: INFO: common: created directory at: artifacts]
+[2025-11-30 23:33:05,748: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:37:05,610: INFO: main:  stage Data Ingestion stage started ......]
+[2025-11-30 23:37:05,612: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:37:05,613: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:37:05,613: INFO: common: created directory at: artifacts]
+[2025-11-30 23:37:05,613: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-11-30 23:37:05,613: INFO: data_ingestion: File already exists of size: ~ 7718 KB]
+[2025-11-30 23:37:05,709: INFO: main:  stage Data Ingestion stage completed ......
+
+x==========x]
+[2025-11-30 23:37:05,709: INFO: main:  stage Data Validation stage started ......]
+[2025-11-30 23:37:05,710: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:37:05,711: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:37:05,711: INFO: common: created directory at: artifacts]
+[2025-11-30 23:37:05,711: INFO: common: created directory at: artifacts/data_validation]
+[2025-11-30 23:37:05,711: INFO: main:  stage Data Validation stage completed ......
+
+x==========x]
+[2025-11-30 23:37:05,711: INFO: main:  stage Data Transformation stage started ......]
+[2025-11-30 23:37:05,713: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:37:05,713: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:37:05,713: INFO: common: created directory at: artifacts]
+[2025-11-30 23:37:05,713: INFO: common: created directory at: artifacts/data_transformation]
+[2025-11-30 23:37:07,281: INFO: main:  stage Data Transformation stage completed ......
+
+x==========x]
+[2025-11-30 23:37:07,282: INFO: main: *******************]
+[2025-11-30 23:37:07,282: INFO: main:  stage Model Trainer stage started ......]
+[2025-11-30 23:37:07,283: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:37:07,284: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:37:07,284: INFO: common: created directory at: artifacts]
+[2025-11-30 23:37:07,284: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:37:14,655: ERROR: main: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)]
+Traceback (most recent call last):
+  File "/home/pal194/text_summarizer/main.py", line 51, in <module>
+    model_trainer.main()
+  File "/home/pal194/text_summarizer/src/textSummarizer/pipeline/stage_04_model_trainer.py", line 14, in main
+    model_trainer_config.train()
+  File "/home/pal194/text_summarizer/src/textSummarizer/components/model_trainer.py", line 110, in train
+    trainer.train()
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 4071, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/accelerate/accelerator.py", line 2734, in backward
+    loss.backward(**kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/_tensor.py", line 647, in backward
+    torch.autograd.backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[2025-11-30 23:38:56,814: INFO: main:  stage Data Ingestion stage started ......]
+[2025-11-30 23:38:56,815: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:38:56,816: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:38:56,816: INFO: common: created directory at: artifacts]
+[2025-11-30 23:38:56,816: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-11-30 23:38:56,816: INFO: data_ingestion: File already exists of size: ~ 7718 KB]
+[2025-11-30 23:38:56,911: INFO: main:  stage Data Ingestion stage completed ......
+
+x==========x]
+[2025-11-30 23:38:56,911: INFO: main:  stage Data Validation stage started ......]
+[2025-11-30 23:38:56,913: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:38:56,913: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:38:56,914: INFO: common: created directory at: artifacts]
+[2025-11-30 23:38:56,914: INFO: common: created directory at: artifacts/data_validation]
+[2025-11-30 23:38:56,914: INFO: main:  stage Data Validation stage completed ......
+
+x==========x]
+[2025-11-30 23:38:56,914: INFO: main:  stage Data Transformation stage started ......]
+[2025-11-30 23:38:56,915: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:38:56,916: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:38:56,916: INFO: common: created directory at: artifacts]
+[2025-11-30 23:38:56,916: INFO: common: created directory at: artifacts/data_transformation]
+[2025-11-30 23:38:58,305: INFO: main:  stage Data Transformation stage completed ......
+
+x==========x]
+[2025-11-30 23:38:58,305: INFO: main: *******************]
+[2025-11-30 23:38:58,305: INFO: main:  stage Model Trainer stage started ......]
+[2025-11-30 23:38:58,306: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-30 23:38:58,307: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-30 23:38:58,307: INFO: common: created directory at: artifacts]
+[2025-11-30 23:38:58,307: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-30 23:39:05,162: ERROR: main: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)]
+Traceback (most recent call last):
+  File "/home/pal194/text_summarizer/main.py", line 51, in <module>
+    model_trainer.main()
+  File "/home/pal194/text_summarizer/src/textSummarizer/pipeline/stage_04_model_trainer.py", line 14, in main
+    model_trainer_config.train()
+  File "/home/pal194/text_summarizer/src/textSummarizer/components/model_trainer.py", line 110, in train
+    trainer.train()
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/transformers/trainer.py", line 4071, in training_step
+    self.accelerator.backward(loss, **kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/accelerate/accelerator.py", line 2734, in backward
+    loss.backward(**kwargs)
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/_tensor.py", line 647, in backward
+    torch.autograd.backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/__init__.py", line 354, in backward
+    _engine_run_backward(
+  File "/home/pal194/miniconda3/envs/textSum_py3.9/lib/python3.9/site-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 188.00 MiB. GPU 0 has a total capacity of 7.70 GiB of which 29.56 MiB is free. Process 1154308 has 5.17 GiB memory in use. Including non-PyTorch memory, this process has 2.47 GiB memory in use. Of the allocated memory 2.34 GiB is allocated by PyTorch, and 21.84 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
