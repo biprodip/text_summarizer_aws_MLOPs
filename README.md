@@ -1,6 +1,4 @@
-# text_summarizer
-
-# End to end Text-Summarizer-Project
+# Abstractive end to end Text-Summarizer
 
 ## Workflows
 
@@ -13,8 +11,6 @@
 7. update the main.py
 8. update the app.py
 
-
-# How to run?
 ### STEPS:
 
 Clone the repository
@@ -46,7 +42,7 @@ python app.py
 
 Now,
 ```bash
-open up you local host and port
+open up your local host and port
 ```
 
 
